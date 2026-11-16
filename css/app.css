@@ -1,5 +1,8 @@
+/* ==============================
+   COLOR PALETTE
+   ============================== */
+
 :root {
-  /* Color palette */
   --color-background: #f6f6f6;
   --color-surface: #fff;
   --color-navy: #123;
@@ -9,21 +12,10 @@
   --color-border: #ccc;
 }
 
-/* Font classes */
-.montserrat {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
+/* ==============================
+   GLOBAL STYLES
+   ============================== */
 
-.story-script-regular {
-  font-family: "Story Script", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-/* Global styles */
 * {
   margin: 0;
   padding: 0;
@@ -37,21 +29,52 @@ html {
 body {
   background: var(--color-background);
   color: var(--color-navy);
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
   font-size: 1.5em;
 }
 
-/* Shared logo */
+/* Allow anchor targets to clear the sticky header */
+#about,
+#projects,
+#skills,
+#contact {
+  scroll-margin-top: 250px;
+}
+
+/* Optional font classes */
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.story-script-regular {
+  font-family: "Story Script", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* ==============================
+   SHARED LOGO
+   ============================== */
+
 .logo img {
   display: block;
   width: auto;
   height: 180px;
 }
 
-/* Header */
+/* ==============================
+   HEADER AND NAVIGATION
+   ============================== */
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 24px;
   padding: 1em;
   background: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
@@ -61,21 +84,21 @@ header {
   z-index: 1000;
 }
 
-/* Navigation */
 .nav-links {
-  list-style: none;
   display: flex;
   align-items: center;
   gap: 1em;
+  list-style: none;
+}
 
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
+.nav-links li {
+  white-space: nowrap;
 }
 
 .nav-links a {
-  text-decoration: none;
   color: var(--color-navy);
   font-weight: 600;
+  text-decoration: none;
 }
 
 .nav-links a:hover {
@@ -83,14 +106,22 @@ header {
   text-decoration: underline;
 }
 
-/* Separators between navigation items */
 .nav-links li + li::before {
   content: "|";
   margin-right: 1em;
   color: var(--color-accent);
 }
 
-/* Outer grid: main content and footer */
+a:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 5px;
+}
+
+/* ==============================
+   PAGE GRIDS
+   ============================== */
+
+/* Outer grid */
 #grid {
   display: grid;
   width: 100%;
@@ -103,8 +134,8 @@ header {
 /* Main content grid */
 main {
   grid-area: main;
-  min-width: 0;
   display: grid;
+  min-width: 0;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   grid-auto-rows: minmax(150px, auto);
   grid-template-areas:
@@ -115,7 +146,10 @@ main {
     "cont cont cont cont cont cont cont cont cont cont cont cont";
 }
 
-/* Hero section */
+/* ==============================
+   HERO
+   ============================== */
+
 #hero {
   grid-area: hero;
   display: grid;
@@ -131,7 +165,7 @@ main {
   row-gap: 24px;
   align-items: start;
   padding: 60px 40px;
-  font-family: "Montserrat", sans-serif;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .hero-eyebrow {
@@ -143,11 +177,13 @@ main {
   color: var(--color-surface);
   font-size: 0.8rem;
   font-weight: 600;
+  line-height: 1.5;
 }
 
 #hero h1 {
   grid-area: head;
   font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 800;
   line-height: 1.1;
 }
 
@@ -156,6 +192,13 @@ main {
   color: var(--color-muted);
   font-size: 1.1rem;
   line-height: 1.6;
+}
+
+.hero-location {
+  grid-area: loca;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 /* Hero buttons */
@@ -172,10 +215,11 @@ main {
   border-radius: 8px;
   background: var(--color-accent);
   color: var(--color-surface);
-  text-decoration: none;
-  text-align: center;
   font-size: 1rem;
   font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
 }
 
 .hero-buttons a:nth-child(2) {
@@ -183,7 +227,14 @@ main {
   color: var(--color-navy);
 }
 
-/* Hero code card */
+.hero-buttons a:hover {
+  text-decoration: underline;
+}
+
+/* ==============================
+   CODE CARD
+   ============================== */
+
 .hero-code {
   grid-area: code;
   align-self: center;
@@ -197,7 +248,7 @@ main {
   box-shadow: 0 12px 30px rgb(0 0 0 / 20%);
 }
 
-/* Window dots */
+/* macOS-style window dots */
 .code-dots {
   display: flex;
   gap: 10px;
@@ -211,15 +262,15 @@ main {
 }
 
 .code-dots span:nth-child(1) {
-  background: #ff5f57; /* Red: close */
+  background: #ff5f57;
 }
 
 .code-dots span:nth-child(2) {
-  background: #febc2e; /* Amber: minimize */
+  background: #febc2e;
 }
 
 .code-dots span:nth-child(3) {
-  background: #28c840; /* Green: maximize */
+  background: #28c840;
 }
 
 /* Filename */
@@ -234,7 +285,7 @@ main {
   font-size: 0.95rem;
 }
 
-/* Code */
+/* Code formatting */
 .hero-code pre {
   margin: 0;
   overflow-x: auto;
@@ -247,24 +298,21 @@ main {
   font-family: Consolas, "Liberation Mono", monospace;
 }
 
-/* Light blue keywords: class, True */
 .code-keyword {
   color: color-mix(in srgb, var(--color-accent) 40%, var(--color-surface) 60%);
   font-weight: 700;
 }
 
-/* White class name: Developer */
 .code-class {
   color: var(--color-surface);
   font-weight: 700;
 }
 
-/* Light gray strings */
 .code-string {
   color: var(--color-border);
 }
 
-/* Bottom badge */
+/* Overlapping badge */
 .code-badge {
   position: absolute;
   right: 24px;
@@ -274,22 +322,78 @@ main {
   border-radius: 8px;
   background: var(--color-accent);
   color: var(--color-surface);
-  font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   font-weight: 700;
+  line-height: 1.4;
   text-align: center;
 }
 
-.hero-location {
-  grid-area: loca;
-  color: var(--color-muted);
-  font-size: 0.95rem;
-}
+/* ==============================
+   ABOUT
+   ============================== */
 
-/* Other sections */
 #about {
   grid-area: abut;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 60px;
+  align-items: start;
+  padding: 60px 40px;
+  background: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
 }
+
+.about-eyebrow {
+  margin-bottom: 28px;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.about-heading h2 {
+  color: var(--color-navy);
+  font-size: clamp(2rem, 3vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.about-content {
+  min-width: 0;
+  color: var(--color-muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.about-content p + p {
+  margin-top: 28px;
+}
+
+/* Language badges */
+.about-languages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.language {
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: color-mix(
+    in srgb,
+    var(--color-border) 35%,
+    var(--color-surface) 65%
+  );
+  color: var(--color-navy);
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ==============================
+   OTHER SECTIONS
+   ============================== */
 
 #projects {
   grid-area: proj;
@@ -303,10 +407,13 @@ main {
   grid-area: cont;
 }
 
-/* Footer */
+/* ==============================
+   FOOTER
+   ============================== */
+
 footer {
-  display: grid;
   grid-area: fter;
+  display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   gap: 24px;
   align-items: center;
@@ -314,12 +421,16 @@ footer {
   width: 100%;
   padding: 25px 45px;
   border-top: 1px solid var(--color-border);
-  color: var(--color-surface);
   background: var(--color-dark);
+  color: var(--color-surface);
 
-  font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 0.8em;
+  line-height: 1.6;
+}
+
+footer > div {
+  min-width: 0;
 }
 
 footer > div:nth-child(1) {
