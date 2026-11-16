@@ -1,14 +1,15 @@
 :root {
-  /* Color palette for the website */
-  --color-background: #f6f6f6; /* Light gray page background */
-  --color-surface: #fff; /* White project cards */
-  --color-text: #123; /* Deep navy headings and body text */
-  --color-muted: #666; /* Gray secondary text */
-  --color-accent: #06f; /* Bright blue buttons and links */
-  --color-dark: #036; /* Navy footer and code panel */
-  --color-border: #ccc; /* Light gray borders and dividers */
+  /* Color palette */
+  --color-background: #f6f6f6;
+  --color-surface: #fff;
+  --color-navy: #123;
+  --color-muted: #666;
+  --color-accent: #06f;
+  --color-dark: #036;
+  --color-border: #ccc;
 }
 
+/* Font classes */
 .montserrat {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
@@ -22,25 +23,31 @@
   font-style: normal;
 }
 
+/* Global styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
   scroll-behavior: smooth;
 }
 
 body {
   background: var(--color-background);
-  color: var(--color-text);
+  color: var(--color-navy);
   font-size: 1.5em;
 }
 
+/* Shared logo */
 .logo img {
   display: block;
   width: auto;
   height: 180px;
 }
 
+/* Header */
 header {
   display: flex;
   justify-content: space-between;
@@ -54,9 +61,11 @@ header {
   z-index: 1000;
 }
 
+/* Navigation */
 .nav-links {
   list-style: none;
   display: flex;
+  align-items: center;
   gap: 1em;
 
   font-family: "Montserrat", sans-serif;
@@ -65,7 +74,7 @@ header {
 
 .nav-links a {
   text-decoration: none;
-  color: var(--color-text);
+  color: var(--color-navy);
   font-weight: 600;
 }
 
@@ -74,12 +83,13 @@ header {
   text-decoration: underline;
 }
 
-.divider {
+/* Separators between navigation items */
+.nav-links li + li::before {
+  content: "|";
+  margin-right: 1em;
   color: var(--color-accent);
 }
 
-/*======================*/
-/*====== GRID CODE =====*/
 /* Outer grid: main content and footer */
 #grid {
   display: grid;
@@ -87,10 +97,10 @@ header {
   grid-template-columns: minmax(0, 1fr);
   grid-template-areas:
     "main"
-    "ftr";
+    "fter";
 }
 
-/* Main content grid: the five sections */
+/* Main content grid */
 main {
   grid-area: main;
   min-width: 0;
@@ -98,22 +108,24 @@ main {
   grid-template-columns: repeat(12, minmax(0, 1fr));
   grid-auto-rows: minmax(150px, auto);
   grid-template-areas:
-    "hro hro hro hro hro hro hro hro hro hro hro hro"
-    "abt abt abt abt abt abt abt abt abt abt abt abt"
-    "prj prj prj prj prj prj prj prj prj prj prj prj"
-    "skl skl skl skl skl skl skl skl skl skl skl skl"
-    "cnt cnt cnt cnt cnt cnt cnt cnt cnt cnt cnt cnt";
+    "hero hero hero hero hero hero hero hero hero hero hero hero"
+    "abut abut abut abut abut abut abut abut abut abut abut abut"
+    "proj proj proj proj proj proj proj proj proj proj proj proj"
+    "skil skil skil skil skil skil skil skil skil skil skil skil"
+    "cont cont cont cont cont cont cont cont cont cont cont cont";
 }
 
+/* Hero section */
 #hero {
+  grid-area: hero;
   display: grid;
   grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
   grid-template-areas:
-    "eyebrow  code"
-    "heading  code"
-    "subhead  code"
-    "buttons  code"
-    "location .";
+    "eyeb code"
+    "head code"
+    "subh code"
+    "btns code"
+    "loca .";
 
   column-gap: 60px;
   row-gap: 24px;
@@ -123,7 +135,7 @@ main {
 }
 
 .hero-eyebrow {
-  grid-area: eyebrow;
+  grid-area: eyeb;
   justify-self: start;
   padding: 8px 16px;
   border-radius: 24px;
@@ -134,20 +146,21 @@ main {
 }
 
 #hero h1 {
-  grid-area: heading;
+  grid-area: head;
   font-size: clamp(2.5rem, 5vw, 5rem);
   line-height: 1.1;
 }
 
 .hero-subhead {
-  grid-area: subhead;
+  grid-area: subh;
   color: var(--color-muted);
   font-size: 1.1rem;
   line-height: 1.6;
 }
 
+/* Hero buttons */
 .hero-buttons {
-  grid-area: buttons;
+  grid-area: btns;
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
@@ -167,47 +180,133 @@ main {
 
 .hero-buttons a:nth-child(2) {
   background: var(--color-border);
-  color: var(--color-text);
+  color: var(--color-navy);
 }
 
+/* Hero code card */
 .hero-code {
   grid-area: code;
   align-self: center;
+  position: relative;
   min-width: 0;
-  padding: 32px;
+  padding: 32px 32px 56px;
+  border: 1px solid var(--color-accent);
   border-radius: 20px;
-  background: var(--color-dark);
+  background: var(--color-navy);
   color: var(--color-surface);
+  box-shadow: 0 12px 30px rgb(0 0 0 / 20%);
+}
+
+/* Window dots */
+.code-dots {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.code-dots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.code-dots span:nth-child(1) {
+  background: #ff5f57; /* Red: close */
+}
+
+.code-dots span:nth-child(2) {
+  background: #febc2e; /* Amber: minimize */
+}
+
+.code-dots span:nth-child(3) {
+  background: #28c840; /* Green: maximize */
+}
+
+/* Filename */
+.code-filename {
+  display: inline-block;
+  margin-bottom: 24px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: var(--color-dark);
+  color: var(--color-border);
+  font-family: monospace;
+  font-size: 0.95rem;
+}
+
+/* Code */
+.hero-code pre {
+  margin: 0;
+  overflow-x: auto;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  tab-size: 4;
+}
+
+.hero-code code {
+  font-family: Consolas, "Liberation Mono", monospace;
+}
+
+/* Light blue keywords: class, True */
+.code-keyword {
+  color: color-mix(in srgb, var(--color-accent) 40%, var(--color-surface) 60%);
+  font-weight: 700;
+}
+
+/* White class name: Developer */
+.code-class {
+  color: var(--color-surface);
+  font-weight: 700;
+}
+
+/* Light gray strings */
+.code-string {
+  color: var(--color-border);
+}
+
+/* Bottom badge */
+.code-badge {
+  position: absolute;
+  right: 24px;
+  bottom: -20px;
+  max-width: calc(100% - 48px);
+  padding: 14px 20px;
+  border-radius: 8px;
+  background: var(--color-accent);
+  color: var(--color-surface);
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
 }
 
 .hero-location {
-  grid-area: location;
+  grid-area: loca;
   color: var(--color-muted);
   font-size: 0.95rem;
 }
 
-.hero-code pre {
-  overflow-x: auto;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
+/* Other sections */
 #about {
-  grid-area: abt;
-}
-#projects {
-  grid-area: prj;
-}
-#skills {
-  grid-area: skl;
-}
-#contact {
-  grid-area: cnt;
+  grid-area: abut;
 }
 
+#projects {
+  grid-area: proj;
+}
+
+#skills {
+  grid-area: skil;
+}
+
+#contact {
+  grid-area: cont;
+}
+
+/* Footer */
 footer {
   display: grid;
-  grid-area: ftr;
+  grid-area: fter;
   grid-template-columns: 1fr 2fr 1fr;
   gap: 24px;
   align-items: center;

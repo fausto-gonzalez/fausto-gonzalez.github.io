@@ -18,6 +18,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Story+Script&display=swap"
       rel="stylesheet"
     />
+
     <link rel="icon" type="image/svg+xml" href="assets/images/logo-icon.svg" />
     <link rel="stylesheet" href="css/app.css" />
 
@@ -27,34 +28,31 @@
   <body>
     <header>
       <div class="logo">
-        <a href="index.html"
-          ><img src="assets/images/logo.svg" alt="Fausto Gonzalez - Home"
-        /></a>
+        <a href="index.html">
+          <img src="assets/images/logo.svg" alt="Fausto Gonzalez - Home" />
+        </a>
       </div>
 
       <nav>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
-          <span class="divider">|</span>
           <li><a href="#about">About</a></li>
-          <span class="divider">|</span>
           <li><a href="#projects">Projects</a></li>
-          <span class="divider">|</span>
           <li><a href="#skills">Skills</a></li>
-          <span class="divider">|</span>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </header>
 
-    <!-- GRID CODE -->
     <div id="grid">
       <main>
         <div id="hero">
           <p class="hero-eyebrow">
             FRONT-END &amp; BACK-END DEVELOPER · JAVASCRIPT, PYTHON &amp; DJANGO
           </p>
+
           <h1>Engineering ideas into software.</h1>
+
           <p class="hero-subhead">
             Hi, I'm Fausto Gonzalez, a software developer focused on front-end
             and back-end development. I build web applications with JavaScript,
@@ -71,7 +69,25 @@
           </div>
 
           <div class="hero-code">
-            <!-- Your code card content -->
+            <div class="code-dots" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <p class="code-filename">developer.py</p>
+
+            <pre><code><span class="code-keyword">class</span> <span class="code-class">Developer</span>:
+    name = <span class="code-string">"Fausto Gonzalez"</span>
+    focus = [
+        <span class="code-string">"JavaScript"</span>,
+        <span class="code-string">"Python", "Django"</span>,
+        <span class="code-string">"APIs", "Databases"</span>
+    ]
+
+    always_learning = <span class="code-keyword">True</span></code></pre>
+
+            <p class="code-badge">Engineering meets software.</p>
           </div>
 
           <p class="hero-location">📍 Brampton, Ontario, Canada</p>
@@ -85,17 +101,21 @@
 
       <footer>
         <div class="logo">
-          <a href="index.html"
-            ><img src="assets/images/logo.svg" alt="Fausto Gonzalez - Home"
-          /></a>
+          <a href="index.html">
+            <img src="assets/images/logo.svg" alt="Fausto Gonzalez - Home" />
+          </a>
         </div>
+
         <div>
           <p>
             &copy; <span id="copyright-year"></span> Fausto Gonzalez. All rights
             reserved.
           </p>
         </div>
-        <div><p>Always learning and improving.</p></div>
+
+        <div>
+          <p>Always learning and improving.</p>
+        </div>
       </footer>
     </div>
   </body>
