@@ -1,4 +1,5 @@
 :root {
+  /* Color palette for the website */
   --color-background: #f6f6f6; /* Light gray page background */
   --color-surface: #fff; /* White project cards */
   --color-text: #123; /* Deep navy headings and body text */
@@ -6,6 +7,19 @@
   --color-accent: #06f; /* Bright blue buttons and links */
   --color-dark: #036; /* Navy footer and code panel */
   --color-border: #ccc; /* Light gray borders and dividers */
+}
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.story-script-regular {
+  font-family: "Story Script", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 * {
