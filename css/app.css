@@ -431,6 +431,8 @@ main {
   padding: 60px 40px;
   background: var(--color-background);
   font-family: "Montserrat", sans-serif;
+
+  border-bottom: 1px solid var(--color-border);
 }
 
 /* Section heading */
