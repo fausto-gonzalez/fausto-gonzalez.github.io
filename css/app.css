@@ -1,3 +1,13 @@
+:root {
+  --color-background: #f6f6f6; /* Light gray page background */
+  --color-surface: #fff; /* White project cards */
+  --color-text: #123; /* Deep navy headings and body text */
+  --color-muted: #666; /* Gray secondary text */
+  --color-accent: #06f; /* Bright blue buttons and links */
+  --color-dark: #036; /* Navy footer and code panel */
+  --color-border: #ccc; /* Light gray borders and dividers */
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +16,8 @@
 }
 
 body {
-  background: #f6f5f0;
-  color: #17293b;
+  background: var(--color-background);
+  color: var(--color-text);
   font-size: 1.5em;
 }
 
