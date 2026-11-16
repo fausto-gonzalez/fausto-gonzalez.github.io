@@ -9,9 +9,8 @@
       integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U="
       crossorigin="anonymous"
       defer
-      async
     ></script>
-    <script src="js/app.js" defer async></script>
+    <script src="js/app.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,31 +34,38 @@
 
       <nav>
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li><span class="divider">|</span>
-          <li><a href="#about">About</a></li><span class="divider">|</span>
-          <li><a href="#projects">Projects</a></li><span class="divider">|</span>
-          <li><a href="#skills">Skills</a></li><span class="divider">|</span>
+          <li><a href="index.html">Home</a></li>
+          <span class="divider">|</span>
+          <li><a href="#about">About</a></li>
+          <span class="divider">|</span>
+          <li><a href="#projects">Projects</a></li>
+          <span class="divider">|</span>
+          <li><a href="#skills">Skills</a></li>
+          <span class="divider">|</span>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
-      <section class="hero">
-        <h2>Welcome to My Portfolio</h2>
-        <p>Discover my work and projects in web development and design.</p>
-      </section>
-
-      <section class="projects">
-        <h3>Featured Projects</h3>
-        <div class="project-list">
-          <!-- Project items will go here -->
-        </div>
-      </section>
+      <section id="home"></section>
+      <section id="about"></section>
+      <section id="projects"></section>
+      <section id="skills"></section>
+      <section id="contact"></section>
     </main>
 
     <footer>
-      <p>&copy; 2024 Fausto Gonzalez. All rights reserved.</p>
+      <div class="logo">
+        <a href="index.html"
+          ><img src="assets/images/logo.svg" alt="Fausto Gonzalez - Home"
+        /></a>
+      </div>
+      <div><p>
+        &copy; <span id="copyright-year"></span> Fausto Gonzalez. All rights
+        reserved.
+      </p></div>
+      <div><p>Always learning and improving.</p></div>
     </footer>
   </body>
 </html>
